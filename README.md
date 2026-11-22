@@ -1,48 +1,35 @@
 # esbuild-plugin-time
 
-simple time measuring of the build process  
+esbuild plugin that logs the start and end of every build to the console and measures its duration.
 
-## Installation
+Documentation: https://www.marco-starker.de/en/projects/esbuild-plugin-time/docs
+(Deutsch: https://www.marco-starker.de/de/projekte/esbuild-plugin-time/doku)
 
+## Quick start
+
+```bash
+npm i -D esbuild-plugin-time
 ```
-npm i --save-dev esbuild-plugin-time
-```
 
-## Usage
-
-```javascript
+```js
 import esbuild from 'esbuild';
 import time from 'esbuild-plugin-time';
 
-esbuild.build({
+await esbuild.build({
     entryPoints: ['./src/index.js'],
     bundle:      true,
     outfile:     './dist/index.js',
     plugins:     [
-        time(),
-    ]
+        time('App'),
+    ],
 });
 ```
 
-```javascript
-import esbuild from 'esbuild';
-import time from 'esbuild-plugin-time';
-
-esbuild.build({
-    entryPoints: ['./src/index.js'],
-    bundle:      true,
-    outfile:     './dist/index.js',
-    plugins:     [
-        time('Bundle A'),
-    ]
-});
-
-esbuild.build({
-    entryPoints: ['./src/stuff.js'],
-    bundle:      true,
-    outfile:     './dist/stuff.js',
-    plugins:     [
-        time('Bundle B'),
-    ]
-});
+```text
+Build started for App
+Build ended App: 42ms
 ```
+
+## License
+
+[MIT](LICENSE)

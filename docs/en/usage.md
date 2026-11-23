@@ -1,6 +1,6 @@
 ---
 title: Usage
-description: Typical uses of esbuild-plugin-time – one bundle, several bundles, watch mode and the right position in plugins.
+description: Typical uses of esbuild-plugin-time for timing esbuild builds, with one bundle, several bundles, watch mode and the right position in the plugins array.
 order: 20
 slug: usage
 section: Getting started

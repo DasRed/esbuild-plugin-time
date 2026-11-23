@@ -1,6 +1,6 @@
 ---
 title: Überblick
-description: esbuild-Plugin, das Start und Ende jedes Builds auf der Konsole ausgibt und die Dauer in Millisekunden misst.
+description: esbuild-plugin-time gibt Start und Ende jedes esbuild-Builds auf der Konsole aus und misst die Dauer in Millisekunden. Kurzbeispiel, Arbeitsweise und Status.
 order: 0
 section: Einstieg
 ---

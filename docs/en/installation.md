@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Install esbuild-plugin-time via npm, requirements and dependencies.
+description: Install esbuild-plugin-time via npm as a dev dependency. Which versions of Node.js and esbuild you need and why the package is published as pure ESM.
 order: 10
 slug: installation
 section: Getting started

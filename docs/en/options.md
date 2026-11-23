@@ -1,6 +1,6 @@
 ---
 title: Options
-description: The single parameter of esbuild-plugin-time, the output format and the known limitations.
+description: The name parameter of esbuild-plugin-time, what the timing output on the console looks like with and without a name and which limitations the plugin has.
 order: 30
 slug: options
 section: Reference

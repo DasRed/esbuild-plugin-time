@@ -1,6 +1,6 @@
 ---
 title: Optionen
-description: Der einzige Parameter von esbuild-plugin-time, das Ausgabeformat und die bekannten Grenzen.
+description: Der Parameter name von esbuild-plugin-time, wie die Zeitausgabe mit und ohne Namen auf der Konsole aussieht und welche Einschränkungen das Plugin hat.
 order: 30
 slug: optionen
 section: Referenz

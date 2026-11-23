@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: esbuild plugin that logs the start and end of every build to the console and measures its duration in milliseconds.
+description: esbuild-plugin-time logs the start and end of every esbuild build to the console and measures its duration in milliseconds. Quick example, behaviour and status.
 order: 0
 section: Getting started
 ---

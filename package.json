@@ -16,7 +16,7 @@
     "files": [
         "/src/*"
     ],
-    "homepage": "https://github.com/DasRed/esbuild-plugin-time#readme",
+    "homepage": "https://www.marco-starker.de/en/projects/esbuild-plugin-time/docs",
     "keywords": [
         "esbuild",
         "plugin",

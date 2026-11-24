@@ -1,6 +1,6 @@
 ---
 title: Verwendung
-description: Typische Einsätze von esbuild-plugin-time – ein Bundle, mehrere Bundles, Watch-Modus und die richtige Position in plugins.
+description: Typische Einsätze von esbuild-plugin-time: ein Bundle, mehrere Bundles, eigener Logger, fehlgeschlagene Builds, Watch-Modus und die Position in plugins.
 order: 20
 slug: verwendung
 section: Einstieg
@@ -59,6 +59,30 @@ Build ended Worker: 12ms
 Build ended App: 40ms
 ```
 
+## Fehlgeschlagene Builds
+
+Meldet esbuild Fehler, steht das in der letzten Zeile:
+
+```text
+Build started for App
+Build failed App: 8ms
+```
+
+## Eigener Logger
+
+Mit einer Funktion in `logger` schickst du die Zeilen woandershin, etwa in dein eigenes Logging. Schalte die Farben ab,
+wenn das Ziel sie nicht darstellen kann:
+
+```js
+time({
+    name:   'App',
+    colors: false,
+    logger: (message) => logger.info(message),
+})
+```
+
+Farben fallen automatisch weg, wenn das Terminal keine kann oder `NO_COLOR` gesetzt ist.
+
 ## Position in plugins
 
 esbuild ruft die `onEnd`-Callbacks der Plugins nacheinander in der Reihenfolge auf, in der sie in `plugins` stehen.
@@ -68,8 +92,8 @@ werden, setz `time()` ans Ende:
 
 ```js
 plugins: [
-    clear('./dist'),
-    copy({from: './public', to: '.'}),
+    clear(),
+    copy({from: './public'}),
     time('App'),
 ],
 ```

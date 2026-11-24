@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: esbuild-plugin-time per npm als Dev-Abhängigkeit installieren. Welche Versionen von Node.js und esbuild du brauchst und warum das Paket reines ESM ist.
+description: esbuild-plugin-time per npm installieren, welche Versionen von Node.js und esbuild du brauchst und wie du es als ESM, CommonJS oder in TypeScript lädst.
 order: 10
 slug: installation
 section: Einstieg
@@ -14,7 +14,7 @@ Das Plugin brauchst du nur beim Bauen, also als Dev-Abhängigkeit.
 npm i -D esbuild-plugin-time
 ```
 
-esbuild bringt das Plugin nicht mit. Falls es noch fehlt:
+esbuild ist eine Peer-Abhängigkeit. Falls es noch fehlt:
 
 ```bash
 npm i -D esbuild
@@ -22,13 +22,32 @@ npm i -D esbuild
 
 ## Voraussetzungen
 
-| Was     | Version        | Warum                                             |
-|---------|----------------|---------------------------------------------------|
-| Node.js | mit ESM        | Das Paket ist reines ESM                          |
-| esbuild | mit Plugin-API | Getestet mit 0.28; gebraucht werden `onStart` und `onEnd` |
+| Was     | Version     | Warum                                                          |
+|---------|-------------|----------------------------------------------------------------|
+| Node.js | ab 22.13    | Mindestversion in `engines`, älteste unterstützte LTS-Linie    |
+| esbuild | ab 0.19     | Peer-Abhängigkeit, getestet mit 0.28; gebraucht werden `onStart` und `onEnd` |
 
-Als einzige Abhängigkeit kommt [chalk](https://github.com/chalk/chalk) 4 für die Farben mit.
+Zur Laufzeit hat das Paket keine Abhängigkeiten.
 
-> [!NOTE]
-> Das Paket hat nur einen Default-Export. Schreib dein Build-Skript als `.mjs` oder setz `"type": "module"` in deiner
-> `package.json`.
+## Import
+
+Das Paket gibt es als ES-Modul und als CommonJS, jeweils mit eigenen Typdefinitionen.
+
+```js
+import time from 'esbuild-plugin-time';
+```
+
+```js
+const time = require('esbuild-plugin-time').default;
+```
+
+In CommonJS liegt der Default-Export unter `.default`, neben den Typ-Exporten. TypeScript und Bundler erledigen
+das bei `import … from` für dich.
+
+In TypeScript bekommst du den Typ der Optionen als benannten Typ-Export:
+
+```ts
+import time, {type TimePluginOptionInterface} from 'esbuild-plugin-time';
+
+const options: TimePluginOptionInterface = {name: 'App'};
+```

@@ -31,17 +31,19 @@ Build started for App
 Build ended App: 42ms
 ```
 
-The name is shown in green, the duration in yellow.
+The name is shown in green, the duration in yellow. A failed build ends with a red `Build failed`.
 
 ## What the plugin does
 
 - In `onStart` it remembers the start time, in `onEnd` it prints the elapsed time.
 - In watch mode it measures every rebuild.
 - A name lets you tell several bundles apart in the output.
+- The output goes to `console.log` or to your own logger, with or without colors.
 
 ## Status
 
-Version 1.0.0, written in 2021. Tested with esbuild 0.28 and Node.js 22.
+Version 2, rewritten in TypeScript in 2026. Ships as ESM and CommonJS with type definitions and has no runtime
+dependencies anymore. Tested with esbuild 0.28 and Node.js 22 and 26. Coming from version 1? See [Migration](migration.md).
 
 ## Related packages
 

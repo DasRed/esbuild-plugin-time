@@ -1,28 +1,61 @@
 {
     "name": "esbuild-plugin-time",
     "version": "1.0.2",
-    "description": "a time plugin for esbuild",
-    "main": "./src/index.js",
+    "description": "esbuild plugin that logs the start and end of every build and measures its duration",
     "type": "module",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DasRed/esbuild-plugin-time.git"
-    },
     "author": "Marco Starker",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/DasRed/esbuild-plugin-time/issues"
     },
-    "files": [
-        "/src/*"
-    ],
     "homepage": "https://www.marco-starker.de/en/projects/esbuild-plugin-time/docs",
+    "engines": {
+        "node": ">=22.13.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DasRed/esbuild-plugin-time.git"
+    },
     "keywords": [
         "esbuild",
         "plugin",
-        "time"
+        "time",
+        "performance"
     ],
-    "dependencies": {
-        "chalk": "^4.1.2"
+    "sideEffects": false,
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist/*"
+    ],
+    "scripts": {
+        "build": "tsdown",
+        "test": "vitest run",
+        "coverage": "vitest run --coverage --reporter=default --reporter=junit --outputFile.junit=coverage/reports/unittest.xml"
+    },
+    "peerDependencies": {
+        "esbuild": ">=0.19.0"
+    },
+    "devDependencies": {
+        "@types/node": "^26.6.6",
+        "@vitest/coverage-v8": "^5.1.1",
+        "esbuild": "^0.28.2",
+        "tsdown": "^0.23.7",
+        "typescript": "^7.0.2",
+        "vitest": "^5.1.1"
     }
 }
